@@ -6,6 +6,14 @@ from rest_framework.response import Response
 from django.http import Http404
 from rest_framework.views import APIView
 
+class CourseList(generics.ListCreateAPIView):
+    queryset=Course.objects.all()
+    serializer_class=CourseSerializer
+
+class CourseDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset=Course.objects.all()
+    serializer_class=CourseSerializer
+'''
 class CourseList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
     queryset=Course.objects.all()
     serializer_class=CourseSerializer
@@ -28,7 +36,7 @@ class CourseDetails(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.Des
 
     def delete(self,request,pk):
         return self.destroy(request,pk)
-
+'''
 # Create your views here.
 '''
 class CourseList(APIView):
