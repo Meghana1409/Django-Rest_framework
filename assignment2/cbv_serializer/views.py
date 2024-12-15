@@ -5,7 +5,14 @@ from rest_framework import status,generics,mixins
 from rest_framework.response import Response
 from django.http import Http404
 from rest_framework.views import APIView
+from rest_framework import viewsets
 
+#assignment 4
+class CourseViewSet(viewsets.ModelViewSet):
+    queryset=Course.objects.all()
+    serializer_class=CourseSerializer
+'''
+# assignment 3
 class CourseList(generics.ListCreateAPIView):
     queryset=Course.objects.all()
     serializer_class=CourseSerializer
@@ -14,6 +21,8 @@ class CourseDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset=Course.objects.all()
     serializer_class=CourseSerializer
 '''
+'''
+#assignment 2
 class CourseList(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
     queryset=Course.objects.all()
     serializer_class=CourseSerializer
@@ -39,6 +48,7 @@ class CourseDetails(mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.Des
 '''
 # Create your views here.
 '''
+#assignment 1
 class CourseList(APIView):
 
     def get(self,request):
